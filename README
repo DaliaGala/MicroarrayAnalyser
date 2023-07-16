@@ -1,0 +1,15 @@
+Name: Microarray_analysis_program.py
+Created by: Dalia S. Gala, dalia.gala@merton.ox.ac.uk
+Date: 28 Oct 2019
+This program will accept a .jpg or .png file image containing multiple plates of DNA microarrays, and return a Comma Separated Variable (CSV) file listing the intensity of the signal strength for healthy (green) and unhealthy (red) test results.
+
+This program will accept an image file in .png or .jpg format. It will blur it and convert it to a black and white image, from which it will extract average pixel values per row and column.
+Next, the program will find peaks in the extracted average values of columns and rows, and assign them to two separate matrices. It will then iterate over the image in colour and go to these peak values treating them as coordinates, and it will extract the pixel values at these coordinates. It will then take a difference between the green (G) and the red(R) value and insert it into a matrix which will be saved as a csv file.
+
+Since the program takes the difference between the G and R, not between R and G, if the well is read, the value will be negative, and if the well is green, the value will be positive. If there are equal amounts of R and G in the well, the value will be 0.
+
+To run the file, open the console and change to the directory in which the program is. Make sure your files are in that directory too. Files supplied are an example of a symmetrical microarray - called "Single_plate.png", and an example of an asymmetrical microarray - called "asymmetrical_array.jpg". 
+
+Run the program by typing ./MicroarrayAnalyser.py in the console. Once prompted, type the filename together with the file format in the console. As an output of this program, two files will be generated - one image file, called "GridforMicroarray" in the same format as your input file, with an overlay of the grid indicating where the program recognises the well centres - these will be the grid intersections. Another one will be a csv file, called "well_values.csv", with the difference values per well - the more negative the value (closer to -255), the more red the well, and the more positive the value (closer to 255), the more green the well. Value 0 means a yellow well.
+
+
